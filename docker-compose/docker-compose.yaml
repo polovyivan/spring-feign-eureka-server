@@ -1,0 +1,63 @@
+services:
+  customer-app-1:
+    networks:
+      - eureka-tutorial-network
+    build:
+      context: ../spring-customer-app
+      no_cache: true
+      labels:
+        label_name: "eureka-tutorial"
+      tags:
+        - "spring-customer-app:latest"
+    environment:
+      customer_app_hostname: customer-app
+      eureka.instance.hostname: eureka-server
+
+  customer-app-2:
+    networks:
+      - eureka-tutorial-network
+    build:
+      context: ../spring-customer-app
+      no_cache: true
+      labels:
+        label_name: "eureka-tutorial"
+      tags:
+        - "spring-customer-app:latest"
+    environment:
+      customer_app_hostname: customer-app
+      eureka.instance.hostname: eureka-server
+
+  eureka-server:
+    ports:
+      - "2525:2525"
+    networks:
+      - eureka-tutorial-network
+    build:
+      context: ../spring-eureka-server
+      no_cache: true
+      labels:
+        label_name: "eureka-tutorial"
+      tags:
+        - "spring-eureka-server:latest"
+    environment:
+      customer_app_hostname: eureka-server
+
+  spring-feign-client:
+    ports:
+      - "8002:8002"
+    networks:
+      - eureka-tutorial-network
+    build:
+      context: ../spring-feign-client
+      #      dockerfile: ./Dockerfile
+      no_cache: true
+      labels:
+        label_name: "eureka-tutorial"
+      tags:
+        - "spring-feign-client:latest"
+    environment:
+      customer_app_hostname: spring-feign-client
+      eureka.instance.hostname: eureka-server
+
+networks:
+  eureka-tutorial-network:

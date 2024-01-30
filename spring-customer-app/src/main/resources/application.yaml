@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 0
   servlet:
     context-path: /customer-app
 
@@ -19,13 +19,13 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:2525/eureka/
+      defaultZone: http://${eureka.instance.hostname:localhost}:2525/eureka/
     registerWithEureka: true
     enabled: true
 
   instance:
-    instanceId: ${spring.application.name}
-    hostname: localhost
+    hostname: ${customer_app_hostname:localhost}
+    instance-id: ${spring.application.name}
     preferIpAddress: true
 
   datasource:

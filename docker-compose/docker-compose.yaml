@@ -1,19 +1,5 @@
 services:
-  customer-app-1:
-    networks:
-      - eureka-tutorial-network
-    build:
-      context: ../spring-customer-app
-      no_cache: true
-      labels:
-        label_name: "eureka-tutorial"
-      tags:
-        - "spring-customer-app:latest"
-    environment:
-      customer_app_hostname: customer-app
-      eureka.instance.hostname: eureka-server
-
-  customer-app-2:
+  customer-app:
     networks:
       - eureka-tutorial-network
     build:

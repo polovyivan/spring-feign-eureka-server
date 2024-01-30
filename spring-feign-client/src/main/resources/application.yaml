@@ -22,14 +22,14 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:2525/eureka/
+      defaultZone: http://${eureka.instance.hostname:localhost}:2525/eureka/
     registerWithEureka: true
     fetchRegistry: true
 
 
   instance:
     instanceId: ${spring.application.name}
-    hostname: localhost
+    hostname: ${spring_feign_client_hostname:localhost}
     preferIpAddress: true
 
 logging:

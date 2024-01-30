@@ -37,7 +37,7 @@ RUN mkdir -p /$MAVEN_HOME_DIR /$MAVEN_HOME_DIR/ref \
 ENV MAVEN_CONFIG "/${APP_DIR}/.m2"
 
 # 9- Define app name an artifactId from POM
-ENV APP_NAME spring-customer-app
+ENV APP_NAME spring-eureka-server
 
 # 10- Copy source code and POM
 COPY ./src ./$APP_DIR/src

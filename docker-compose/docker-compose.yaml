@@ -49,7 +49,6 @@ services:
       - eureka-tutorial-network
     build:
       context: ../spring-feign-client
-      #      dockerfile: ./Dockerfile
       no_cache: true
       labels:
         label_name: "eureka-tutorial"

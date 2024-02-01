@@ -11,11 +11,12 @@ services:
         - "spring-customer-app:latest"
     environment:
       customer_app_hostname: customer-app
-      eureka.instance.hostname: eureka-server
+      eureka_instance_hostname: eureka-server
+      app_server_port: 0
 
   eureka-server:
     ports:
-      - "2525:2525"
+      - "8761:8761"
     networks:
       - eureka-tutorial-network
     build:
@@ -30,7 +31,7 @@ services:
 
   spring-feign-client:
     ports:
-      - "8002:8002"
+      - "8000:8000"
     networks:
       - eureka-tutorial-network
     build:
@@ -42,7 +43,9 @@ services:
         - "spring-feign-client:latest"
     environment:
       customer_app_hostname: spring-feign-client
-      eureka.instance.hostname: eureka-server
+      eureka_instance_hostname: eureka-server
 
 networks:
   eureka-tutorial-network:
+
+#    docker compose up --scale customer-app=3

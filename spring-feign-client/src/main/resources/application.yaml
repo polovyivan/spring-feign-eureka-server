@@ -1,28 +1,16 @@
 server:
-  port: 8002
+  port: 8000
   servlet:
     context-path: /spring-feign-eureka-server
 
 spring:
   application:
     name: spring-feign-eureka-server
-  cloud:
-    httpclient:
-      enabled: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, metrics, prometheus, info
-  metrics:
-    tags:
-      application: ${spring.application.name}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname:localhost}:2525/eureka/
+      defaultZone: http://${eureka.instance.hostname:localhost}:8761/eureka/
     registerWithEureka: true
     fetchRegistry: true
 
@@ -30,8 +18,16 @@ eureka:
   instance:
     instanceId: ${spring.application.name}
     hostname: ${spring_feign_client_hostname:localhost}
+#    metadataMap:
+#      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}}
     preferIpAddress: true
 
 logging:
   level:
     com.polovyi.ivan.client: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus, info

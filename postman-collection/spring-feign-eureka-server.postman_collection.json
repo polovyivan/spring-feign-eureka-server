@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "52540dae-0526-4e72-8472-48acec95e899",
-		"name": "spring-cloud-open-feign-metrics",
+		"_postman_id": "d31c83de-3f71-4351-bb63-eebd80a50965",
+		"name": "spring-feign-eureka-server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9825253"
 	},
 	"item": [
 		{
-			"name": "spring-feign-client",
+			"name": "spring-customer-app",
 			"item": [
 				{
 					"name": "/customers",
@@ -15,91 +15,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers",
+							"raw": "http://localhost:8001/customer-app/v1/customers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8001",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"customer-app",
 								"v1",
 								"customers"
-							],
-							"query": [
-								{
-									"key": "fullName",
-									"value": "Ivan Polovyi",
-									"disabled": true
-								},
-								{
-									"key": "phoneNumber",
-									"value": "893-087-1038",
-									"disabled": true
-								},
-								{
-									"key": "createdAt",
-									"value": "2016-01-30",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "metrics",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/actuator/prometheus",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8002",
-							"path": [
-								"spring-cloud-open-feign-metrics",
-								"actuator",
-								"prometheus"
-							],
-							"query": [
-								{
-									"key": "fullName",
-									"value": "Ivan Polovyi",
-									"disabled": true
-								},
-								{
-									"key": "phoneNumber",
-									"value": "893-087-1038",
-									"disabled": true
-								},
-								{
-									"key": "createdAt",
-									"value": "2016-01-30",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "actuator",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/actuator",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8002",
-							"path": [
-								"spring-cloud-open-feign-metrics",
-								"actuator"
 							],
 							"query": [
 								{
@@ -128,14 +53,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers/:customerId",
+							"raw": "http://localhost:8001/customer-app/v1/customers/:customerId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8001",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"customer-app",
 								"v1",
 								"customers",
 								":customerId"
@@ -182,14 +107,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers",
+							"raw": "http://localhost:8001/customer-app/v1/customers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8001",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"customer-app",
 								"v1",
 								"customers"
 							]
@@ -212,14 +137,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers/:customerId",
+							"raw": "http://localhost:8001/customer-app/v1/customers/:customerId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8001",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"customer-app",
 								"v1",
 								"customers",
 								":customerId"
@@ -237,26 +162,88 @@
 				{
 					"name": "/customers",
 					"request": {
-						"method": "PATCH",
+						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"phoneNumber\": \"931.259.2365\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers/:customerId",
+							"raw": "http://localhost:8001/customer-app/v1/customers/:customerId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8001",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"customer-app",
+								"v1",
+								"customers",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "cbc7e8f4-0daf-4ad4-80b8-f4a17a8877cd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "spring-feign-eureka-server",
+			"item": [
+				{
+					"name": "/customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/spring-feign-eureka-server/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"spring-feign-eureka-server",
+								"v1",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "fullName",
+									"value": "Ivan Polovyi",
+									"disabled": true
+								},
+								{
+									"key": "phoneNumber",
+									"value": "893-087-1038",
+									"disabled": true
+								},
+								{
+									"key": "createdAt",
+									"value": "2016-01-30",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/spring-feign-eureka-server/v1/customers/:customerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"spring-feign-eureka-server",
 								"v1",
 								"customers",
 								":customerId"
@@ -264,7 +251,7 @@
 							"query": [
 								{
 									"key": "fullName",
-									"value": "Rueben Purdy",
+									"value": "Ivan Polovyi",
 									"disabled": true
 								},
 								{
@@ -291,17 +278,56 @@
 				{
 					"name": "/customers",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"Ivan Polovyi\",\n    \"phoneNumber\": \"831.259.2365\",\n    \"address\": \"Apt. 843 399 Lachelle Crossing, New Eldenhaven, LA 63962-9260\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8002/spring-cloud-open-feign-metrics/v1/customers/:customerId",
+							"raw": "http://localhost:8000/spring-feign-eureka-server/v1/customers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8002",
+							"port": "8000",
 							"path": [
-								"spring-cloud-open-feign-metrics",
+								"spring-feign-eureka-server",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"=Ivan\",\n    \"phoneNumber\": \"=931.259.2365\",\n    \"address\": \"=Bpt. 843 399 Lachelle Crossing, New Eldenhaven, LA 63962-9260\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/spring-feign-eureka-server/v1/customers/:customerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"spring-feign-eureka-server",
 								"v1",
 								"customers",
 								":customerId"
@@ -310,6 +336,78 @@
 								{
 									"key": "customerId",
 									"value": "cbc7e8f4-0daf-4ad4-80b8-f4a17a8877cd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/spring-feign-eureka-server/v1/customers/:customerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"spring-feign-eureka-server",
+								"v1",
+								"customers",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "cbc7e8f4-0daf-4ad4-80b8-f4a17a8877cd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "spring-eureka-server",
+			"item": [
+				{
+					"name": "/eureka/v2/apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2525/eureka/v2/apps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2525",
+							"path": [
+								"",
+								"eureka",
+								"v2",
+								"apps"
+							],
+							"query": [
+								{
+									"key": "fullName",
+									"value": "Ivan Polovyi",
+									"disabled": true
+								},
+								{
+									"key": "phoneNumber",
+									"value": "893-087-1038",
+									"disabled": true
+								},
+								{
+									"key": "createdAt",
+									"value": "2016-01-30",
+									"disabled": true
 								}
 							]
 						}

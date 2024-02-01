@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8002
   servlet:
     context-path: /customer-app
 
@@ -7,25 +7,17 @@ spring:
   application:
     name: customer-service
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, metrics, prometheus, info
-  metrics:
-    tags:
-      application: ${spring.application.name}
-
 eureka:
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname:localhost}:2525/eureka/
+      defaultZone: http://${eureka.instance.hostname:localhost}:8761/eureka/
     registerWithEureka: true
     enabled: true
 
   instance:
     hostname: ${customer_app_hostname:localhost}
-    instance-id: ${spring.application.name}
+#    metadataMap:
+#      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}}
     preferIpAddress: true
 
   datasource:
@@ -36,6 +28,12 @@ eureka:
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus, info
 
 # Used for test, it logs queries
 logging:

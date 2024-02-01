@@ -28,6 +28,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("/v1/customers")
 public class CustomerControllerForFeignClient {
 
+
     private final CustomerAPIClient customerAPIClient;
 
     @GetMapping
@@ -66,5 +67,6 @@ public class CustomerControllerForFeignClient {
     public void deleteCustomer(@PathVariable String customerId) {
         customerAPIClient.deleteCustomer(customerId);
     }
+
 
 }

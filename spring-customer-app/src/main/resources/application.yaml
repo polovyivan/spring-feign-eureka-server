@@ -1,11 +1,18 @@
 server:
-  port: ${app_server_port:8001}
+  port: ${app_server_port:8002}
   servlet:
     context-path: /customer-app
 
 spring:
   application:
     name: customer-service
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:customerdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
 
 eureka:
   client:
@@ -20,14 +27,6 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
 
-  datasource:
-    url: jdbc:h2:mem:customerdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
 
 management:
   endpoints:
